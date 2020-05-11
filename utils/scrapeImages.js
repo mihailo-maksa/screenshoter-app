@@ -34,7 +34,7 @@ const randomNumber = Math.floor(Math.random() * 1000);
 
 module.exports = async function scrapeImages(url) {
   try {
-    const browser = await pt.launch();
+    const browser = await pt.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(url);
 
