@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScreenShot App</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        margin-top: 30px;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+      input {
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border: none;
+        border: 1px solid #333;
+        padding: 5px 0 5px 5px;
+      }
+      button {
+        border-radius: 10px;
+        background-color: crimson;
+        font-weight: bold;
+        font-size: 1em;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+      }
+      p {
+        line-height: 1.25em;
+      }
+      td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>ScreenShot App</h1>
+      <p>
+        Enter the URL of the website that you <br />
+        want to get screenshot of & preview it!
+      </p>
+      <form action="/" method="post">
+        <input type="text" name="site" placeholder="Enter Site Name" required />
+        <input type="url" name="url" placeholder="Enter URL" required />
+        <button type="submit">Submit</button>
+      </form>
+
+      <table>
+        <tbody>
+          <% images.forEach(image => { %>
+          <tr>
+            <td>
+              <h3><%=image.siteName%></h3>
+              <img
+                src="<%=image.imageURL%>"
+                alt="Site Preview"
+                title="Site Preview"
+              />
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
